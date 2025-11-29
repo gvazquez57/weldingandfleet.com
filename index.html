@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Welding and Fleet Repair | 24/7 Roadside & Maintenance</title>
+  <meta name="description" content="Mobile Welding and Fleet Repair serving commercial and fleet vehicles in the West Valley. Emergency roadside repairs, welding, and routine fleet maintenance. Call (623) 201-0949.">
+  <style>
+    :root {
+      --bg: #05070b;
+      --bg-alt: #0d1117;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #ef4444;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.45);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
+      border-radius: 28px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148,163,184,0.25);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(249,115,22,0.28) 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(56,189,248,0.18) 0, transparent 55%);
+      opacity: 0.75;
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+    header {
+      padding: 24px 24px 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 20%, #f97316, #b91c1c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      border: 1px solid rgba(248,250,252,0.35);
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .header-contact {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .header-contact strong {
+      display: block;
+      font-size: 0.9rem;
+      color: #f9fafb;
+      margin-bottom: 4px;
+    }
+
+    .header-contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .header-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      padding: 0 24px 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(156,163,175,0.35);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    .badge.hot {
+      border-color: rgba(248,113,113,0.9);
+      background: rgba(127,29,29,0.85);
+      color: #fee2e2;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #f97316;
+    }
+
+    main {
+      padding: 8px 24px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 780px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .header-contact {
+        text-align: left;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .hero {
+      padding: 20px 18px 18px;
+      background: radial-gradient(circle at top left, rgba(249,115,22,0.23), transparent 65%), rgba(15,23,42,0.92);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148,163,184,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h2 {
+      font-size: 1.7rem;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .hero h2 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      max-width: 32rem;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .hero-highlight span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(248,250,252,0.06);
+      border: 1px solid rgba(248,250,252,0.18);
+      font-size: 0.7rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .hero-chip {
+      padding: 10px 10px 9px;
+      border-radius: 14px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(75,85,99,0.7);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-chip strong {
+      font-size: 0.83rem;
+    }
+
+    .hero-chip small {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero-chip.emergency {
+      border-color: rgba(248,113,113,0.9);
+      box-shadow: 0 0 0 1px rgba(248,113,113,0.35);
+    }
+
+    .hero-chip.emergency strong {
+      color: #fecaca;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 10px 18px;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background 0.08s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #0b1120;
+      box-shadow: 0 10px 22px rgba(248,113,22,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(248,113,22,0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(15,23,42,0.92);
+      color: #e5e7eb;
+      border: 1px solid rgba(148,163,184,0.7);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(31,41,55,0.95);
+      transform: translateY(-1px);
+    }
+
+    .cta-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-footer {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-footer span::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.65);
+    }
+
+    .hero-footer span:first-child::before {
+      background: var(--accent);
+    }
+
+    /* Right side card */
+
+    .card {
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top right, rgba(56,189,248,0.24), transparent 60%), var(--bg-alt);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148,163,184,0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      font-size: 0.74rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(75,85,99,0.8);
+      color: #e5e7eb;
+    }
+
+    .pill.strong {
+      background: var(--accent-soft);
+      border-color: rgba(249,115,22,0.8);
+      color: #fed7aa;
+    }
+
+    .list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: grid;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .list li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent);
+    }
+
+    .contact-box {
+      margin-top: 4px;
+      padding: 10px 11px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.85);
+      font-size: 0.8rem;
+    }
+
+    .contact-box div {
+      margin-bottom: 4px;
+    }
+
+    .contact-box strong {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+    }
+
+    .contact-box a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 0 24px 18px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer span {
+      opacity: 0.85;
+    }
+
+    footer strong {
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">MW</div>
+        <div class="brand-text">
+          <h1>Mobile Welding & Fleet Repair</h1>
+          <p>On-site service for working trucks</p>
+        </div>
+      </div>
+      <div class="header-contact">
+        <strong>Call or text now</strong>
+        <a href="tel:+16232010949">(623) 201-0949</a><br />
+        <a href="mailto:mobileweldingfleet@live.com">mobileweldingfleet@live.com</a>
+      </div>
+    </header>
+
+    <div class="badge-row">
+      <div class="badge hot">
+        <span class="badge-dot"></span> Emergency roadside for fleet & commercial vehicles
+      </div>
+      <div class="badge">
+        <span class="badge-dot"></span> West Valley & greater Phoenix
+      </div>
+      <div class="badge">
+        100% mobile · Your yard, your route, your schedule
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="hero-highlight">
+          <span>24/7</span>
+          On-site welding & repair for fleets that can’t sit in a shop all day.
+        </div>
+
+        <h2>
+          Keep your trucks <span>working</span>,<br />
+          not waiting in a bay.
+        </h2>
+
+        <p class="hero-sub">
+          Mobile Welding and Fleet Repair comes to you for fast breakdown response and routine maintenance
+          on work trucks, trailers, and commercial vehicles.
+        </p>
+
+        <div class="hero-grid">
+          <div class="hero-chip emergency">
+            <strong>Emergency roadside & breakdowns</strong>
+            <small>Stuck on the side of the road or jobsite? We’ll come to you and get you rolling again.</small>
+          </div>
+          <div class="hero-chip">
+            <strong>Routine fleet service</strong>
+            <small>Scheduled maintenance to keep your fleet safe, compliant, and making money.</small>
+          </div>
+          <div class="hero-chip">
+            <strong>Mobile welding & fabrication</strong>
+            <small>Racks, hitches, gates, trailers, and cracked frames handled on site.</small>
+          </div>
+          <div class="hero-chip">
+            <strong>Yard & on-route service</strong>
+            <small>We work around your schedule so your trucks stay on the road.</small>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+16232010949">
+            📞 Call now for service
+          </a>
+          <a class="btn btn-ghost" href="mailto:mobileweldingfleet@live.com?subject=Fleet%20Service%20Request&body=Tell%20us%20about%20your%20truck%2Ffleet%20and%20what%20you%20need%3A">
+            ✉️ Email job details
+          </a>
+        </div>
+        <div class="cta-note">
+          Available for urgent roadside calls and scheduled fleet maintenance.
+        </div>
+
+        <div class="hero-footer">
+          <span>• Diesel, gas, and light-duty fleets</span>
+          <span>• Commercial trucks, trailers, equipment</span>
+          <span>• Licensed mobile service</span>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div>
+          <h3>What we do</h3>
+          <div class="pill-row">
+            <span class="pill strong">Emergency roadside repair</span>
+            <span class="pill">Mobile welding</span>
+            <span class="pill">Fleet inspections</span>
+            <span class="pill">PM service</span>
+          </div>
+        </div>
+
+        <ul class="list">
+          <li>Roadside diagnostics and minor repairs</li>
+          <li>Mobile welding for frames, racks, steps, and trailers</li>
+          <li>Brake and light checks to keep you street legal</li>
+          <li>Oil changes and basic preventative maintenance on site</li>
+          <li>Small fabrication jobs for work trucks and equipment</li>
+        </ul>
+
+        <div class="contact-box">
+          <div>
+            <strong>Call or text</strong><br />
+            <a href="tel:+16232010949">(623) 201-0949</a>
+          </div>
+          <div>
+            <strong>Email</strong><br />
+            <a href="mailto:mobileweldingfleet@live.com">mobileweldingfleet@live.com</a>
+          </div>
+          <div>
+            <strong>Service area</strong><br />
+            West Valley & greater Phoenix · Mobile-only service
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Mobile Welding and Fleet Repair. All rights reserved.</span>
+      <span><strong>Welding & fleet work where your trucks actually live.</strong></span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
