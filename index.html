@@ -48,6 +48,9 @@
 
 nav{flex-wrap:wrap;justify-content:flex-end}nav a[aria-current="page"]{text-decoration-thickness:3px}.breadcrumbs{justify-content:flex-start;font-size:13px;margin-bottom:24px;color:#d5ded8}.service-hero{padding-bottom:48px}.service-hero h1{font-size:clamp(36px,4.4vw,56px)}.service-photo{margin:0}.service-photo img{display:block;width:100%;height:auto;border-radius:4px}.service-photo figcaption{font-size:12px;color:#c7d2cb;margin-top:10px}.service-hero .hero-grid{grid-template-columns:1.35fr 1fr;gap:40px}.service-hero .btn{white-space:normal}.service-hero .eyebrow{max-width:100%}.service-links{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:24px}.service-links a{font-weight:700}.mini-bio{display:flex;align-items:center;gap:24px}.mini-bio img{width:96px;height:96px;flex-shrink:0;border-radius:4px}.mini-bio p{margin:0}.card a{font-weight:700}.footer-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:16px}.hero .eyebrow{overflow-wrap:anywhere}.hero .fine{max-width:650px}.card[id]{scroll-margin-top:24px}@media(max-width:900px){header{align-items:flex-start;flex-direction:column}nav{justify-content:flex-start}}@media(max-width:760px){.service-hero .hero-grid{grid-template-columns:1fr}.mini-bio{align-items:flex-start}.mini-bio img{width:72px;height:72px}.service-hero{padding-bottom:32px}}
 </style>
+<link rel="alternate" hreflang="en" href="https://www.weldingandfleet.com/">
+<link rel="alternate" hreflang="es" href="https://www.weldingandfleet.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.weldingandfleet.com/">
 </head>
 <body data-service="overview">
 <a class="skip" href="#main">Skip to content</a>
@@ -56,6 +59,7 @@ nav{flex-wrap:wrap;justify-content:flex-end}nav a[aria-current="page"]{text-deco
 <a class="brand" href="/">MOBILE WELDING<br>&amp; FLEET REPAIR<small>PHOENIX BASED. ARIZONA WIDE.</small>
 </a>
 <nav aria-label="Main navigation">
+<a href="/es/" lang="es" hreflang="es" aria-label="Leer esta página en español">Español</a>
 <a href="/" aria-current="page">Home</a>
 <a href="/mobile-fleet-repair/">Fleet repair</a>
 <a href="/emergency-diesel-repair/">Emergency diesel</a>
@@ -79,7 +83,7 @@ nav{flex-wrap:wrap;justify-content:flex-end}nav a[aria-current="page"]{text-deco
 <a class="btn" href="sms:+14809574301">Text fleet details</a>
 </div>
 <p class="fine">Dispatched from downtown Phoenix, AZ 85003. Mileage charges apply.</p>
-<p class="experience-note">Gabriel Vazquez · 30+ years of hands-on professional experience</p>
+<p class="experience-note">Gabriel Vazquez · 30+ years of hands-on professional experience · Hablamos español</p>
 </div>
 <aside class="dispatch">
 <div class="eyebrow">Broken down? Call any time.</div>
@@ -194,6 +198,7 @@ document.addEventListener('click', function (event) {
     contact_method: protocol === 'tel' ? 'phone' : protocol === 'sms' ? 'text' : 'email',
     link_location: section ? (section.id || 'hero') : 'other',
     service_page: document.body.getAttribute('data-service') || 'overview',
+    page_language: document.documentElement.lang,
     transport_type: 'beacon'
   });
 });
