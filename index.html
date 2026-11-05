@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEJ7MCZ71R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JEJ7MCZ71R');
+</script>
+
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mobile Fleet Maintenance Phoenix AZ | Welding &amp; Fleet Repair</title>
 <meta name="description" content="Arizona mobile fleet maintenance, roadside repair &amp; welding. Gabriel Vazquez: 30+ years of hands-on experience. Phoenix-based. Call 24/7; mileage applies.">
@@ -47,4 +56,20 @@
 <section class="content"><div class="wrap"><div class="eyebrow">Before you book</div><h2>Fleet &amp; roadside service questions.</h2><details><summary>Can I arrange recurring fleet maintenance?</summary><p>Yes. Call or email with your vehicle count, vehicle types, yard location and preferred schedule. We’ll discuss the maintenance work and repeat visits your operation needs.</p></details><details><summary>Do you travel outside Phoenix?</summary><p>Yes. Service is available throughout Arizona, with mileage charged from downtown Phoenix, AZ 85003. Provide your location for travel pricing and availability.</p></details><details><summary>Can I call for a breakdown at night?</summary><p>Yes. Calls are answered 24/7. Call to discuss the breakdown, after-hours pricing, mileage and availability before dispatch is arranged.</p></details><details><summary>How much does mobile service cost?</summary><p>Pricing depends on the work, service location and timing. Mileage charges apply, and after-hours pricing is discussed for overnight calls. Call or send details for a quote for your job.</p></details><details><summary>What should I send for a fleet maintenance quote?</summary><p>Include the number and types of vehicles, the work needed, your yard address and your preferred service times. Mention whether you want a one-time visit or recurring maintenance.</p></details></div></section>
 <section id="contact" class="contact"><div class="wrap"><div class="eyebrow">Let’s keep your fleet working</div><h2>Tell us what you run.<br>We’ll talk maintenance.</h2><p>For recurring fleet service, send your vehicle list, location and schedule. For a breakdown, call with your location and what went wrong.</p><div class="actions"><a class="btn primary" href="tel:+14809574301">Call (480) 957-4301</a><a class="btn" href="sms:+14809574301">Text job details</a></div><p><a href="mailto:mobileweldingfleet@live.com">mobileweldingfleet@live.com</a></p><p class="fine">Calls answered 24/7 · Downtown Phoenix, AZ 85003 · Arizona-wide mobile service · Mileage charges apply</p></div></section>
 </main><footer class="wrap">© Mobile Welding and Fleet Repair. All rights reserved.</footer>
+<script>
+// Contact clicks indicate interest, not completed calls or booked work.
+document.addEventListener('click', function (event) {
+  var link = event.target.closest ? event.target.closest('a[href]') : null;
+  if (!link) return;
+  var protocol = (link.getAttribute('href') || '').split(':')[0].toLowerCase();
+  var eventNames = {tel: 'click_to_call', sms: 'click_to_text', mailto: 'click_to_email'};
+  if (!Object.prototype.hasOwnProperty.call(eventNames, protocol)) return;
+  var section = link.closest('section');
+  gtag('event', eventNames[protocol], {
+    contact_method: protocol === 'tel' ? 'phone' : protocol === 'sms' ? 'text' : 'email',
+    link_location: section ? (section.id || 'hero') : 'other',
+    transport_type: 'beacon'
+  });
+});
+</script>
 </body></html>
